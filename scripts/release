@@ -1,0 +1,3 @@
+#!/bin/bash
+
+zip releases/dark-mode-extension-$(jq -r .version manifest.json).zip manifest.json images/** src/** README.md
