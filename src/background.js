@@ -33,18 +33,18 @@ chrome.action.onClicked.addListener(function (tab) {
 
 function enableDarkMode(tabId) {
   let html = document.documentElement;
-  console.log(html);
+  let bg = window.__extension__darkmode_html_bg || html.style.backgroundColor;
 
   if (!!window.__extension__darkmode) {
     html.style.filter = "";
+    html.style.backgroundColor = bg;
     window.__extension__darkmode = false;
   } else {
     html.style.filter =
       "hue-rotate(180deg) contrast(0.95) saturate(0.95) invert(0.90)";
+    html.style.backgroundColor = "#fff";
     window.__extension__darkmode = true;
   }
 
-  console.log(html.style.filter);
-  console.log(window.__extension__darkmode);
   return window.__extension__darkmode;
 }
